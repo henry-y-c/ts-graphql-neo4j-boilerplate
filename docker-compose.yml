@@ -1,0 +1,17 @@
+version: '3.6'
+services:
+  neo4j:
+    image: neo4j:latest
+    restart: always
+    volumes:
+      - ./.neo4j/data:/data:rw # db files
+      - ./.neo4j/plugins:/plugins:rw # db plugins
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      - NEO4J_AUTH=none # no auth
+      - NEO4J_apoc_export_file_enabled=true # apoc env vars
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+      - NEO4JLABS_PLUGINS=["apoc"] # plugins

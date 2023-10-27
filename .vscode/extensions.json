@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "jebbs.plantuml",
+    "davidanson.vscode-markdownlint",
+    "wayou.vscode-todo-highlight",
+    "kisstkondoros.vscode-codemetrics",
+    "GraphQL.vscode-graphql"
+  ]
+}

@@ -1,0 +1,30 @@
+type Query {
+  hello: String!
+}
+
+type Business {
+  id: ID! @id
+  name: String!
+  address: String
+  avgStars: Float! @computed
+  reviews: [Review!]! @relationship(type: "REVIEWS", direction: IN)
+  createdAt: DateTime! @timestamp(operations: [CREATE])
+}
+
+type User {
+  id: ID! @id
+  name: String!
+  phone: String! @unique
+  reviews: [Review!]! @relationship(type: "WROTE", direction: OUT)
+  createdAt: DateTime! @timestamp(operations: [CREATE])
+}
+
+type Review {
+  id: ID! @id
+  stars: Int!
+  text: String
+  user: User! @relationship(type: "WROTE", direction: IN)
+  business: Business! @relationship(type: "REVIEWS", direction: OUT)
+  createdAt: DateTime! @timestamp(operations: [CREATE])
+  updatedAt: DateTime! @timestamp(operations: [UPDATE])
+}

@@ -1,0 +1,37 @@
+{
+  "name": "ts-dev-env",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "generate": "node scripts/generate-ts-types.js",
+    "start": "tsc && node dist/main.js",
+    "lint": "eslint .",
+    "start-neo4j": "docker compose up -d",
+    "stop-neo4j": "docker compose down",
+    "log-neo4j": "docker compose logs",
+    "debug": "tsc && DEBUG=@neo4j/graphql:* node dist/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.5",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.2.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@graphql-tools/load-files": "^6.6.1",
+    "@neo4j/graphql": "^3.6.2",
+    "@neo4j/graphql-ogm": "^3.6.2",
+    "apollo-server": "^3.10.0",
+    "apollo-server-core": "^3.10.0",
+    "graphql": "^16.5.0",
+    "neo4j-driver": "^4.4.7"
+  }
+}
